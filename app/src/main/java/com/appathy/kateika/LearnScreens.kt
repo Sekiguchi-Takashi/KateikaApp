@@ -32,6 +32,25 @@ import androidx.compose.ui.unit.sp
 fun DomainScreen(d: Domain, push: (Screen) -> Unit, pop: () -> Unit) {
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         TopBar(d.name, Color(d.colorHex), pop)
+        val guide = CharRepo.forDomain(d.id)
+        if (guide != null) {
+            SectionCard(bg = Color(d.colorHex).copy(alpha = 0.10f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    CharImage(guide.file, Modifier.height(64.dp), silhouette = !CharRepo.isUnlocked(guide))
+                    Column(Modifier.padding(start = 10.dp)) {
+                        Text(
+                            if (CharRepo.isUnlocked(guide)) guide.name else "？？？",
+                            fontWeight = FontWeight.Bold, fontSize = 14.sp, color = Ink
+                        )
+                        Text(
+                            if (CharRepo.isUnlocked(guide)) "「" + guide.tip + "」" else guide.unlockText + "と登録されます",
+                            fontSize = 12.sp, lineHeight = 18.sp, color = Ink.copy(alpha = 0.8f),
+                            modifier = Modifier.padding(top = 2.dp)
+                        )
+                    }
+                }
+            }
+        }
         val best = Store.gameBest(d.gameId)
         SectionCard(bg = Color(d.colorHex).copy(alpha = 0.15f), onClick = { push(Screen.Game(d)) }) {
             Column {
@@ -116,6 +135,20 @@ fun QuizScreen(d: Domain, l: Lesson, pop: () -> Unit) {
                         },
                         fontSize = 13.sp, color = Ink.copy(alpha = 0.75f), modifier = Modifier.padding(top = 6.dp)
                     )
+                }
+            }
+            val voice = CharRepo.forDomain(d.id) ?: CharRepo.current()
+            SectionCard {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    CharImage(voice.file, Modifier.height(70.dp))
+                    Column(Modifier.padding(start = 10.dp)) {
+                        Text(voice.name, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Ink)
+                        Text(
+                            "「" + (if (score >= (l.quiz.size + 1) / 2) voice.praise else voice.cheer) + "」",
+                            fontSize = 14.sp, lineHeight = 21.sp, color = Ink,
+                            modifier = Modifier.padding(top = 2.dp)
+                        )
+                    }
                 }
             }
             Button(onClick = pop, modifier = Modifier.fillMaxWidth().padding(16.dp)) { Text("もどる") }

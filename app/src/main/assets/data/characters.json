@@ -1,0 +1,105 @@
+{
+  "room": "img/room_kateika.jpg",
+  "characters": [
+    {
+      "id": "akari", "name": "あかり", "file": "img/char_akari.png",
+      "role": "食生活・調理の案内役", "domain": "food",
+      "unlockType": "always", "unlockValue": "",
+      "unlockText": "はじめから いっしょにいる",
+      "greet": "家庭科室へようこそ。まずは何をつくってみる？",
+      "tip": "こんだては主食・主菜・副菜・汁物をそろえると、自然にバランスがよくなるよ。",
+      "praise": "その調子！ちゃんと身についてるね。",
+      "cheer": "だいじょうぶ、もう一度読めば必ず分かるよ。"
+    },
+    {
+      "id": "koharu", "name": "こはる", "file": "img/char_koharu.png",
+      "role": "食べることが大すき", "domain": "food",
+      "unlockType": "domain_read", "unlockValue": "food",
+      "unlockText": "食生活のレッスンを全部読む",
+      "greet": "おなかすいた！today は何をつくるの？",
+      "tip": "赤・黄・緑がそろってるか、食べる前に指おりで数えるのがわたしのくせ。",
+      "praise": "すごーい！全部わかってるじゃん。",
+      "cheer": "まちがえた問題こそ、おぼえるチャンスだよ。"
+    },
+    {
+      "id": "kenta", "name": "けんた", "file": "img/char_kenta.png",
+      "role": "洗濯表示にくわしい", "domain": "clothing",
+      "unlockType": "domain_read", "unlockValue": "clothing",
+      "unlockText": "衣生活のレッスンを全部読む",
+      "greet": "服のタグ、ちゃんと見たことある？",
+      "tip": "おけ・三角・四角・アイロン・丸。この5つを覚えれば表示はだいたい読めるよ。",
+      "praise": "完ぺき。もう洗濯係をまかせられるね。",
+      "cheer": "記号は形で覚えると早いよ。まず5つの基本から。"
+    },
+    {
+      "id": "minami", "name": "みなみ", "file": "img/char_minami.png",
+      "role": "住まいの安全係", "domain": "housing",
+      "unlockType": "domain_read", "unlockValue": "housing",
+      "unlockText": "住生活のレッスンを全部読む",
+      "greet": "床にものが落ちてない？つまずくと危ないよ。",
+      "tip": "そうじは上から下へ。ほこりは必ず落ちてくるからね。",
+      "praise": "よくできました。安全のことがよく分かってるね。",
+      "cheer": "生活の中で思い出すと、すっとおぼえられるよ。"
+    },
+    {
+      "id": "yui", "name": "ゆい", "file": "img/char_yui.png",
+      "role": "家族の仕事の相談役", "domain": "family",
+      "unlockType": "domain_read", "unlockValue": "family",
+      "unlockText": "家族・家庭生活のレッスンを全部読む",
+      "greet": "きょう、家の仕事なにかした？",
+      "tip": "小さい子と話すときは、しゃがんで目線を合わせる。それだけで安心してくれるよ。",
+      "praise": "いい判断。相手の気持ちを考えられてるね。",
+      "cheer": "正解は一つじゃないけど、相手の気持ちから考えてみよう。"
+    },
+    {
+      "id": "souta", "name": "そうた", "file": "img/char_souta.png",
+      "role": "買い物と契約にきびしい", "domain": "consumer",
+      "unlockType": "domain_read", "unlockValue": "consumer",
+      "unlockText": "消費・環境のレッスンを全部読む",
+      "greet": "それ、本当に必要なもの？ほしいだけじゃなくて？",
+      "tip": "こまったら188。消費生活センターにつながる番号だ。覚えておいて損はない。",
+      "praise": "正確だな。だまされない力がついてる。",
+      "cheer": "契約は一度むすぶと戻せない。そこだけは覚えておこう。"
+    },
+    {
+      "id": "haruto", "name": "はると", "file": "img/char_haruto.png",
+      "role": "ゲーム好きのムードメーカー", "domain": "",
+      "unlockType": "game_count", "unlockValue": "3",
+      "unlockText": "ゲームを3種類あそぶ",
+      "greet": "つぎ何やる？おれ、仕分けなら負けないよ！",
+      "tip": "ゲームは何回もやったほうがいい。3回目くらいで急に見えてくるから。",
+      "praise": "ナイス！ベスト更新いけるんじゃない？",
+      "cheer": "気にすんな、もう一回！"
+    },
+    {
+      "id": "riku", "name": "りく", "file": "img/char_riku.png",
+      "role": "はじめての実習仲間", "domain": "",
+      "unlockType": "log_count", "unlockValue": "1",
+      "unlockText": "実習記録を1件つける",
+      "greet": "この前つくったやつ、写真とっておいてよかったよね。",
+      "tip": "うまくいかなかった記録こそ残しておくと、次に効いてくるよ。",
+      "praise": "おー、ちゃんとおぼえてるんだ。",
+      "cheer": "つくって食べれば、そのうち体でおぼえるって。"
+    },
+    {
+      "id": "sakura", "name": "さくら", "file": "img/char_sakura.png",
+      "role": "記録をためる先輩", "domain": "",
+      "unlockType": "log_count", "unlockValue": "3",
+      "unlockText": "実習記録を3件ためる",
+      "greet": "アルバム見返すと、上達してるのが分かっておもしろいよ。",
+      "tip": "同じ料理を人数を変えてつくると、分量の感覚が身につくよ。",
+      "praise": "さすが。もう教えられる側だね。",
+      "cheer": "はじめはみんなそう。記録が助けてくれるから。"
+    },
+    {
+      "id": "nagisa", "name": "なぎさ", "file": "img/char_nagisa.png",
+      "role": "全部読んだ委員長", "domain": "",
+      "unlockType": "all_read", "unlockValue": "",
+      "unlockText": "5領域のレッスンを全部読む",
+      "greet": "ひととおり読み終えたのね。ここからが本番よ。",
+      "tip": "衣食住とお金と家族。どれも生活でつながっているの。別々に覚えないでね。",
+      "praise": "満点。よく理解できています。",
+      "cheer": "まちがえた所にしるしをつけて、明日もう一度見ましょう。"
+    }
+  ]
+}

@@ -60,6 +60,20 @@ fun GameResult(d: Domain, score: Int, max: Int, gameId: String, onRetry: () -> U
             Text("ベスト: ${Store.gameBest(gameId)}", fontSize = 12.sp, color = Ink.copy(alpha = 0.6f))
         }
     }
+    val voice = CharRepo.forDomain(d.id) ?: CharRepo.current()
+    SectionCard {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            CharImage(voice.file, Modifier.height(70.dp))
+            Column(Modifier.padding(start = 10.dp)) {
+                Text(voice.name, fontWeight = FontWeight.Bold, fontSize = 13.sp, color = Ink)
+                Text(
+                    "「" + (if (score * 2 >= max) voice.praise else voice.cheer) + "」",
+                    fontSize = 14.sp, lineHeight = 21.sp, color = Ink,
+                    modifier = Modifier.padding(top = 2.dp)
+                )
+            }
+        }
+    }
     Row(Modifier.fillMaxWidth().padding(16.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
         Button(onClick = onRetry, modifier = Modifier.weight(1f),
             colors = ButtonDefaults.buttonColors(containerColor = Color(d.colorHex))) { Text("もう一回") }

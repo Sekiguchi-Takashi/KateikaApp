@@ -75,6 +75,16 @@ object Store {
         sp.edit().putString("logs", out.toString()).apply()
     }
 
+    fun selectedChar(): String = sp.getString("char", "akari") ?: "akari"
+    fun setSelectedChar(id: String) = sp.edit().putString("char", id).apply()
+
+    fun seenChars(): Set<String> = sp.getStringSet("seenChars", emptySet()) ?: emptySet()
+    fun markSeen(ids: List<String>) {
+        val next = HashSet(seenChars())
+        next.addAll(ids)
+        sp.edit().putStringSet("seenChars", next).apply()
+    }
+
     fun newPhotoFile(ctx: Context): File {
         val dir = File(ctx.filesDir, "photos")
         if (!dir.exists()) dir.mkdirs()
