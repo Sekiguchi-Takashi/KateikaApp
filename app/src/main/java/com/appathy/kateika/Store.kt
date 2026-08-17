@@ -85,6 +85,83 @@ object Store {
         sp.edit().putStringSet("seenChars", next).apply()
     }
 
+    fun myRecipes(): List<Recipe> {
+        val arr = JSONArray(sp.getString("myRecipes", "[]"))
+        return (0 until arr.length()).map { i -> recipeFromJson(arr.getJSONObject(i)) }
+    }
+
+    fun saveMyRecipe(r: Recipe) {
+        val arr = JSONArray(sp.getString("myRecipes", "[]"))
+        val out = JSONArray()
+        for (i in 0 until arr.length()) {
+            val o = arr.getJSONObject(i)
+            if (o.getString("id") != r.id) out.put(o)
+        }
+        out.put(recipeToJson(r))
+        sp.edit().putString("myRecipes", out.toString()).apply()
+    }
+
+    fun deleteMyRecipe(id: String) {
+        val arr = JSONArray(sp.getString("myRecipes", "[]"))
+        val out = JSONArray()
+        for (i in 0 until arr.length()) {
+            val o = arr.getJSONObject(i)
+            if (o.getString("id") != id) out.put(o)
+        }
+        sp.edit().putString("myRecipes", out.toString()).apply()
+    }
+
+    private fun recipeToJson(r: Recipe): JSONObject {
+        val o = JSONObject()
+        o.put("id", r.id)
+        o.put("name", r.name)
+        o.put("category", r.category)
+        o.put("difficulty", r.difficulty)
+        o.put("baseServings", r.baseServings)
+        o.put("point", r.point)
+        val ings = JSONArray()
+        r.ingredients.forEach { ing ->
+            val io = JSONObject()
+            io.put("name", ing.name)
+            io.put("amount", ing.amount)
+            io.put("unit", ing.unit)
+            io.put("scalable", ing.scalable)
+            io.put("round", ing.round)
+            ings.put(io)
+        }
+        o.put("ingredients", ings)
+        val steps = JSONArray()
+        r.steps.forEach { s ->
+            val so = JSONObject()
+            so.put("text", s.text)
+            so.put("time", s.time)
+            so.put("heat", s.heat)
+            steps.put(so)
+        }
+        o.put("steps", steps)
+        return o
+    }
+
+    private fun recipeFromJson(o: JSONObject): Recipe {
+        val ings = o.getJSONArray("ingredients")
+        val steps = o.getJSONArray("steps")
+        return Recipe(
+            o.getString("id"), o.getString("name"), o.getString("category"),
+            o.getInt("difficulty"), o.getInt("baseServings"), o.optString("point"),
+            (0 until ings.length()).map { i ->
+                val io = ings.getJSONObject(i)
+                Ingredient(
+                    io.getString("name"), io.getDouble("amount"), io.getString("unit"),
+                    io.getBoolean("scalable"), io.getString("round")
+                )
+            },
+            (0 until steps.length()).map { i ->
+                val so = steps.getJSONObject(i)
+                StepItem(so.getString("text"), so.optString("time"), so.optString("heat"))
+            }
+        )
+    }
+
     fun newPhotoFile(ctx: Context): File {
         val dir = File(ctx.filesDir, "photos")
         if (!dir.exists()) dir.mkdirs()

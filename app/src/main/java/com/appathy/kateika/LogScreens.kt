@@ -156,7 +156,7 @@ fun AddLogScreen(recipeName: String, servings: Int, pop: () -> Unit) {
                 Spacer(Modifier.height(10.dp))
                 Text("つくった人数", fontSize = 13.sp, color = Ink.copy(alpha = 0.7f))
                 Spacer(Modifier.height(4.dp))
-                Stepper(num) { num = it }
+                Stepper(num, { num = it })
                 Spacer(Modifier.height(10.dp))
                 Text("できばえ", fontSize = 13.sp, color = Ink.copy(alpha = 0.7f))
                 StarRow(stars) { stars = it }

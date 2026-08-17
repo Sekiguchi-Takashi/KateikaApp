@@ -55,6 +55,7 @@ sealed class Screen {
     data class Game(val d: Domain) : Screen()
     data object Chars : Screen()
     data class CharDetail(val c: Character) : Screen()
+    data class RecipeEdit(val base: Recipe?) : Screen()
 }
 
 val Ink = Color(0xFF3D405B)
@@ -80,6 +81,8 @@ class MainActivity : ComponentActivity() {
                 val pop: () -> Unit = { if (stack.size > 1) stack.removeAt(stack.size - 1) }
                 BackHandler(enabled = stack.size > 1) { pop() }
                 Surface(Modifier.fillMaxSize(), color = Paper) {
+                  Column(Modifier.fillMaxSize()) {
+                    Box(Modifier.weight(1f)) {
                     when (val cur = stack.last()) {
                         is Screen.Home -> HomeScreen(push)
                         is Screen.DomainS -> DomainScreen(cur.d, push, pop)
@@ -92,7 +95,11 @@ class MainActivity : ComponentActivity() {
                         is Screen.Game -> GameScreen(cur.d, pop)
                         is Screen.Chars -> CharacterListScreen(push, pop)
                         is Screen.CharDetail -> CharDetailScreen(cur.c, pop)
+                        is Screen.RecipeEdit -> RecipeEditScreen(cur.base, pop)
                     }
+                    }
+                    TimerBar()
+                  }
                 }
             }
         }
