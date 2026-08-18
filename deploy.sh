@@ -13,6 +13,7 @@ git add -A
 git commit -m "${1:-update}"
 git pull --rebase origin main
 git push -u origin main
+if [ "$2" = "notag" ]; then printf 'pushed (notag)\n'; exit 0; fi
 git fetch --tags --force
 LATEST=$(git tag --list 'v*' | sort -V | tail -n1)
 if [ -z "$LATEST" ]; then NEXT=v1.0.0; else BASE=${LATEST%.*}; PATCH=${LATEST##*.}; NEXT=$BASE.$((PATCH+1)); fi

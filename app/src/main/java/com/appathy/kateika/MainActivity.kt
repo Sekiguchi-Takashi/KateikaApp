@@ -82,6 +82,7 @@ class MainActivity : ComponentActivity() {
                 BackHandler(enabled = stack.size > 1) { pop() }
                 Surface(Modifier.fillMaxSize(), color = Paper) {
                   Column(Modifier.fillMaxSize()) {
+                    TimerBar()
                     Box(Modifier.weight(1f)) {
                     when (val cur = stack.last()) {
                         is Screen.Home -> HomeScreen(push)
@@ -98,7 +99,6 @@ class MainActivity : ComponentActivity() {
                         is Screen.RecipeEdit -> RecipeEditScreen(cur.base, pop)
                     }
                     }
-                    TimerBar()
                   }
                 }
             }

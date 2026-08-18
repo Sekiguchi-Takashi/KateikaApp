@@ -42,9 +42,13 @@ object CookTimer {
     var running by mutableStateOf(false)
     var paused by mutableStateOf(false)
     var finished by mutableStateOf(false)
+    var recipeId by mutableStateOf("")
+    var stepIndex by mutableIntStateOf(-1)
+    var stepText by mutableStateOf("")
+    var stepHeat by mutableStateOf("")
     private var ringtone: Ringtone? = null
 
-    fun start(name: String, seconds: Int) {
+    fun start(name: String, seconds: Int, recipe: String = "", index: Int = -1, text: String = "", heat: String = "") {
         stopSound()
         label = name
         totalSec = seconds
@@ -53,6 +57,10 @@ object CookTimer {
         running = true
         paused = false
         finished = false
+        recipeId = recipe
+        stepIndex = index
+        stepText = text
+        stepHeat = heat
     }
 
     fun pause() {
@@ -69,6 +77,10 @@ object CookTimer {
         }
     }
 
+    fun resumeOrPause() {
+        if (paused) resume() else pause()
+    }
+
     fun addMinute() {
         if (!running) return
         if (paused) remain += 60 else endAt += 60000L
@@ -81,6 +93,10 @@ object CookTimer {
         finished = false
         remain = 0
         label = ""
+        recipeId = ""
+        stepIndex = -1
+        stepText = ""
+        stepHeat = ""
     }
 
     fun ring(ctx: Context) {
@@ -154,47 +170,69 @@ fun TimerBar() {
         }
     }
     val done = CookTimer.finished
-    Box(
+    Column(
         Modifier.fillMaxWidth()
             .background(if (done) Color(0xFFE07A5F) else Ink)
             .padding(horizontal = 12.dp, vertical = 10.dp)
     ) {
-        Column {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    if (done) "⏰ 時間です" else fmtClock(CookTimer.remain),
-                    color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.Bold
-                )
-                Text(
-                    "  " + CookTimer.label,
-                    color = Color.White.copy(alpha = 0.85f), fontSize = 12.sp,
-                    modifier = Modifier.weight(1f)
-                )
+        Row(Modifier.fillMaxWidth()) {
+            if (!done) {
+                TimerChip(
+                    if (CookTimer.paused) "▶ 再開" else "❚❚ 一時停止",
+                    Modifier.weight(1f)
+                ) { CookTimer.resumeOrPause() }
+                Spacer(Modifier.width(8.dp))
+                TimerChip("＋1分", Modifier.weight(1f)) { CookTimer.addMinute() }
+                Spacer(Modifier.width(8.dp))
             }
-            Spacer(Modifier.height(6.dp))
-            Row {
-                if (!done) {
-                    TimerChip(if (CookTimer.paused) "再開" else "一時停止") {
-                        if (CookTimer.paused) CookTimer.resume() else CookTimer.pause()
-                    }
-                    Spacer(Modifier.width(8.dp))
-                    TimerChip("＋1分") { CookTimer.addMinute() }
-                    Spacer(Modifier.width(8.dp))
+            TimerChip(if (done) "止める" else "やめる", Modifier.weight(1f)) { CookTimer.clear() }
+        }
+        Spacer(Modifier.height(8.dp))
+        Text(
+            if (done) "⏰ 00:00" else fmtClock(CookTimer.remain),
+            color = Color.White, fontSize = 44.sp, fontWeight = FontWeight.Bold
+        )
+        Text(
+            CookTimer.label,
+            color = Color.White.copy(alpha = 0.85f), fontSize = 12.sp
+        )
+        Spacer(Modifier.height(6.dp))
+        Box(
+            Modifier.fillMaxWidth()
+                .background(Color.White.copy(alpha = 0.15f), RoundedCornerShape(12.dp))
+                .padding(10.dp)
+        ) {
+            Column {
+                Text(
+                    if (done) "この工程はおわりです" else "いまの工程",
+                    color = Color.White.copy(alpha = 0.7f), fontSize = 11.sp
+                )
+                Text(
+                    CookTimer.stepText,
+                    color = Color.White, fontSize = 15.sp, lineHeight = 22.sp,
+                    modifier = Modifier.padding(top = 2.dp)
+                )
+                if (CookTimer.stepHeat.isNotEmpty() && CookTimer.stepHeat != "－") {
+                    Text(
+                        "🔥 " + CookTimer.stepHeat,
+                        color = Color.White.copy(alpha = 0.8f), fontSize = 12.sp,
+                        modifier = Modifier.padding(top = 3.dp)
+                    )
                 }
-                TimerChip(if (done) "止める" else "やめる") { CookTimer.clear() }
             }
         }
     }
 }
 
 @Composable
-fun TimerChip(label: String, onClick: () -> Unit) {
+fun TimerChip(label: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
     Box(
-        Modifier
+        modifier
             .background(Color.White.copy(alpha = 0.22f), RoundedCornerShape(14.dp))
             .clickable { onClick() }
-            .padding(horizontal = 14.dp, vertical = 6.dp)
+            .padding(vertical = 14.dp),
+        contentAlignment = Alignment.Center
     ) {
-        Text(label, color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold)
+        Text(label, color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.Bold)
     }
 }

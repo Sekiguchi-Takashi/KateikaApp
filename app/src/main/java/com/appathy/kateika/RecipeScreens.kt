@@ -152,44 +152,30 @@ fun RecipeDetailScreen(r: Recipe, push: (Screen) -> Unit, pop: () -> Unit) {
                 }
             }
         }
-        Text(
-            "つくり方",
-            modifier = Modifier.padding(start = 16.dp, top = 8.dp),
-            fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Ink
-        )
-        r.steps.forEachIndexed { i, s ->
-            val sec = parseSeconds(s.time)
-            SectionCard {
-                Column {
-                    Row {
-                        Box(
-                            Modifier.size(26.dp).background(Color(0xFFE07A5F), CircleShape),
-                            contentAlignment = Alignment.Center
-                        ) { Text("${i + 1}", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold) }
-                        Column(Modifier.padding(start = 10.dp)) {
-                            Text(s.text, fontSize = 14.sp, lineHeight = 21.sp, color = Ink)
-                            Text(
-                                "⏱ ${s.time}　🔥 ${s.heat}",
-                                fontSize = 12.sp, color = Ink.copy(alpha = 0.6f),
-                                modifier = Modifier.padding(top = 3.dp)
-                            )
-                        }
-                    }
-                    if (sec > 0) {
-                        Box(
-                            Modifier.padding(top = 8.dp, start = 36.dp)
-                                .background(Color(0xFF81B29A), RoundedCornerShape(14.dp))
-                                .clickable { CookTimer.start("${r.name} 手順${i + 1}", sec) }
-                                .padding(horizontal = 16.dp, vertical = 8.dp)
-                        ) {
-                            Text(
-                                "▶ ${fmtClock(sec)} タイマーを開始",
-                                color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
-                }
+        val active = CookTimer.running && CookTimer.recipeId == r.id && CookTimer.stepIndex >= 0
+        if (active) {
+            val next = (CookTimer.stepIndex + 1) until r.steps.size
+            if (!next.isEmpty()) {
+                Text(
+                    "次の工程",
+                    modifier = Modifier.padding(start = 16.dp, top = 8.dp),
+                    fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Ink
+                )
+                next.forEach { i -> StepCard(r, i) }
             }
+            Text(
+                "はじめからの工程",
+                modifier = Modifier.padding(start = 16.dp, top = 12.dp),
+                fontSize = 13.sp, fontWeight = FontWeight.Bold, color = Ink.copy(alpha = 0.6f)
+            )
+            (0..CookTimer.stepIndex).forEach { i -> StepCard(r, i, dim = true) }
+        } else {
+            Text(
+                "つくり方",
+                modifier = Modifier.padding(start = 16.dp, top = 8.dp),
+                fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Ink
+            )
+            r.steps.indices.forEach { i -> StepCard(r, i) }
         }
         if (r.point.isNotEmpty()) {
             SectionCard(bg = Color(0xFFFFF3D6)) {
@@ -206,5 +192,53 @@ fun RecipeDetailScreen(r: Recipe, push: (Screen) -> Unit, pop: () -> Unit) {
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
         ) { Text(if (isMine) "このレシピを編集する" else "コピーしてマイレシピにする") }
         Spacer(Modifier.height(20.dp))
+    }
+}
+
+@Composable
+fun StepCard(r: Recipe, i: Int, dim: Boolean = false) {
+    val s = r.steps[i]
+    val sec = parseSeconds(s.time)
+    val running = CookTimer.running && CookTimer.recipeId == r.id && CookTimer.stepIndex == i
+    SectionCard(bg = if (dim) Color(0xFFF3EEE6) else Color.White) {
+        Column {
+            Row {
+                Box(
+                    Modifier.size(26.dp).background(
+                        if (dim) Color(0xFFBBB6AE) else Color(0xFFE07A5F), CircleShape
+                    ),
+                    contentAlignment = Alignment.Center
+                ) { Text("${i + 1}", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold) }
+                Column(Modifier.padding(start = 10.dp)) {
+                    Text(
+                        s.text, fontSize = 14.sp, lineHeight = 21.sp,
+                        color = if (dim) Ink.copy(alpha = 0.6f) else Ink
+                    )
+                    Text(
+                        "⏱ ${s.time}　🔥 ${s.heat}",
+                        fontSize = 12.sp, color = Ink.copy(alpha = 0.6f),
+                        modifier = Modifier.padding(top = 3.dp)
+                    )
+                }
+            }
+            if (sec > 0) {
+                Box(
+                    Modifier.padding(top = 8.dp, start = 36.dp)
+                        .background(
+                            if (running) Color(0xFFBBB6AE) else Color(0xFF81B29A),
+                            RoundedCornerShape(14.dp)
+                        )
+                        .clickable {
+                            CookTimer.start("${r.name} 手順${i + 1}", sec, r.id, i, s.text, s.heat)
+                        }
+                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                ) {
+                    Text(
+                        if (running) "計測中" else "▶ ${fmtClock(sec)} タイマーを開始",
+                        color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+        }
     }
 }
