@@ -1,197 +1,1672 @@
 {
   "recipes": [
     {
-      "id": "r_gohan", "name": "ごはん", "category": "主食", "difficulty": 1, "baseServings": 2,
+      "id": "r_gohan",
+      "name": "ごはん",
+      "category": "主食",
+      "difficulty": 1,
+      "baseServings": 2,
       "point": "水加減は米の体積の1.2倍が目安。炊く前の吸水でふっくら炊ける。",
       "ingredients": [
-        { "name": "米", "amount": 150, "unit": "g（1合）", "scalable": true, "round": "int" },
-        { "name": "水", "amount": 220, "unit": "ml", "scalable": true, "round": "int" }
+        {
+          "name": "米",
+          "amount": 150,
+          "unit": "g（1合）",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "水",
+          "amount": 220,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        }
       ],
       "steps": [
-        { "text": "米をボウルに入れ、水を注いでさっと混ぜてすぐ捨てる。これを2〜3回くり返して洗う。", "time": "3分", "heat": "－" },
-        { "text": "分量の水にひたして吸水させる。", "time": "30分以上", "heat": "－" },
-        { "text": "ふたをして火にかけ、沸とうさせる。", "time": "約5分", "heat": "中火" },
-        { "text": "沸とうしたら火を弱め、そのまま炊く。", "time": "12分", "heat": "弱火" },
-        { "text": "火を止めてふたを開けずに蒸らす。", "time": "10分", "heat": "－" },
-        { "text": "しゃもじで底から返すようにほぐす。", "time": "1分", "heat": "－" }
+        {
+          "text": "米をボウルに入れ、水を注いでさっと混ぜてすぐ捨てる。これを2〜3回くり返して洗う。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "分量の水にひたして吸水させる。",
+          "time": "30分以上",
+          "heat": "－"
+        },
+        {
+          "text": "ふたをして火にかけ、沸とうさせる。",
+          "time": "約5分",
+          "heat": "中火"
+        },
+        {
+          "text": "沸とうしたら火を弱め、そのまま炊く。",
+          "time": "12分",
+          "heat": "弱火"
+        },
+        {
+          "text": "火を止めてふたを開けずに蒸らす。",
+          "time": "10分",
+          "heat": "－"
+        },
+        {
+          "text": "しゃもじで底から返すようにほぐす。",
+          "time": "1分",
+          "heat": "－"
+        }
       ]
     },
     {
-      "id": "r_misoshiru", "name": "みそ汁（豆腐とわかめ）", "category": "汁物", "difficulty": 1, "baseServings": 2,
+      "id": "r_misoshiru",
+      "name": "みそ汁（豆腐とわかめ）",
+      "category": "汁物",
+      "difficulty": 1,
+      "baseServings": 2,
       "point": "みそは沸とうさせると香りがとぶので、入れたら煮立たせない。",
       "ingredients": [
-        { "name": "だし汁", "amount": 400, "unit": "ml", "scalable": true, "round": "int" },
-        { "name": "豆腐", "amount": 100, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "カットわかめ", "amount": 2, "unit": "g", "scalable": true, "round": "tenth" },
-        { "name": "みそ", "amount": 1.5, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "長ねぎ", "amount": 10, "unit": "g", "scalable": true, "round": "int" }
+        {
+          "name": "だし汁",
+          "amount": 400,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "豆腐",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "カットわかめ",
+          "amount": 2,
+          "unit": "g",
+          "scalable": true,
+          "round": "tenth"
+        },
+        {
+          "name": "みそ",
+          "amount": 1.5,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "長ねぎ",
+          "amount": 10,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        }
       ],
       "steps": [
-        { "text": "豆腐は1.5cm角に切り、ねぎは小口切りにする。", "time": "3分", "heat": "－" },
-        { "text": "なべにだし汁を入れて温める。", "time": "3分", "heat": "中火" },
-        { "text": "豆腐とわかめを入れて温める。", "time": "2分", "heat": "中火" },
-        { "text": "火を弱め、みそをおたまの中で溶きながら加える。", "time": "1分", "heat": "弱火" },
-        { "text": "煮立つ直前でねぎを加えて火を止める。", "time": "30秒", "heat": "弱火" }
+        {
+          "text": "豆腐は1.5cm角に切り、ねぎは小口切りにする。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "なべにだし汁を入れて温める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "豆腐とわかめを入れて温める。",
+          "time": "2分",
+          "heat": "中火"
+        },
+        {
+          "text": "火を弱め、みそをおたまの中で溶きながら加える。",
+          "time": "1分",
+          "heat": "弱火"
+        },
+        {
+          "text": "煮立つ直前でねぎを加えて火を止める。",
+          "time": "30秒",
+          "heat": "弱火"
+        }
       ]
     },
     {
-      "id": "r_nikujaga", "name": "肉じゃが", "category": "主菜", "difficulty": 2, "baseServings": 2,
+      "id": "r_nikujaga",
+      "name": "肉じゃが",
+      "category": "主菜",
+      "difficulty": 2,
+      "baseServings": 2,
       "point": "煮くずれを防ぐため、じゃがいもは大きめに切り、落としぶたで静かに煮る。",
       "ingredients": [
-        { "name": "牛こま切れ肉（豚でも可）", "amount": 150, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "じゃがいも", "amount": 2, "unit": "個", "scalable": true, "round": "int" },
-        { "name": "にんじん", "amount": 0.5, "unit": "本", "scalable": true, "round": "half" },
-        { "name": "玉ねぎ", "amount": 1, "unit": "個", "scalable": true, "round": "half" },
-        { "name": "サラダ油", "amount": 1, "unit": "大さじ", "scalable": false, "round": "half" },
-        { "name": "水", "amount": 200, "unit": "ml", "scalable": true, "round": "int" },
-        { "name": "しょうゆ", "amount": 2, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "みりん", "amount": 2, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "砂糖", "amount": 1, "unit": "大さじ", "scalable": true, "round": "half" }
+        {
+          "name": "牛こま切れ肉（豚でも可）",
+          "amount": 150,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "じゃがいも",
+          "amount": 2,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "玉ねぎ",
+          "amount": 1,
+          "unit": "個",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "水",
+          "amount": 200,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "みりん",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "砂糖",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        }
       ],
       "steps": [
-        { "text": "じゃがいもは4等分、にんじんは乱切り、玉ねぎはくし形に切る。", "time": "8分", "heat": "－" },
-        { "text": "なべに油を熱し、肉を色が変わるまで炒める。", "time": "3分", "heat": "中火" },
-        { "text": "野菜を加えて油がまわるまで炒める。", "time": "3分", "heat": "中火" },
-        { "text": "水と調味料を加え、煮立ったらアクを取る。", "time": "3分", "heat": "中火" },
-        { "text": "落としぶたをして、じゃがいもがやわらかくなるまで煮る。", "time": "15分", "heat": "弱火" },
-        { "text": "火を止めて少し置き、味をふくませる。", "time": "10分", "heat": "－" }
+        {
+          "text": "じゃがいもは4等分、にんじんは乱切り、玉ねぎはくし形に切る。",
+          "time": "8分",
+          "heat": "－"
+        },
+        {
+          "text": "なべに油を熱し、肉を色が変わるまで炒める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "野菜を加えて油がまわるまで炒める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "水と調味料を加え、煮立ったらアクを取る。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "落としぶたをして、じゃがいもがやわらかくなるまで煮る。",
+          "time": "15分",
+          "heat": "弱火"
+        },
+        {
+          "text": "火を止めて少し置き、味をふくませる。",
+          "time": "10分",
+          "heat": "－"
+        }
       ]
     },
     {
-      "id": "r_curry", "name": "カレーライス", "category": "主食", "difficulty": 2, "baseServings": 4,
+      "id": "r_curry",
+      "name": "カレーライス",
+      "category": "主食",
+      "difficulty": 2,
+      "baseServings": 4,
       "point": "ルーは火を止めてから溶かすとダマにならない。",
       "ingredients": [
-        { "name": "豚こま切れ肉", "amount": 250, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "じゃがいも", "amount": 2, "unit": "個", "scalable": true, "round": "int" },
-        { "name": "にんじん", "amount": 1, "unit": "本", "scalable": true, "round": "half" },
-        { "name": "玉ねぎ", "amount": 2, "unit": "個", "scalable": true, "round": "half" },
-        { "name": "カレールー", "amount": 90, "unit": "g（4皿分）", "scalable": true, "round": "int" },
-        { "name": "水", "amount": 650, "unit": "ml", "scalable": true, "round": "int" },
-        { "name": "サラダ油", "amount": 1, "unit": "大さじ", "scalable": false, "round": "half" },
-        { "name": "ごはん", "amount": 4, "unit": "杯", "scalable": true, "round": "int" }
+        {
+          "name": "豚こま切れ肉",
+          "amount": 250,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "じゃがいも",
+          "amount": 2,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "にんじん",
+          "amount": 1,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "玉ねぎ",
+          "amount": 2,
+          "unit": "個",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "カレールー",
+          "amount": 90,
+          "unit": "g（4皿分）",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "水",
+          "amount": 650,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "ごはん",
+          "amount": 4,
+          "unit": "杯",
+          "scalable": true,
+          "round": "int"
+        }
       ],
       "steps": [
-        { "text": "野菜を食べやすい大きさに切る。", "time": "8分", "heat": "－" },
-        { "text": "なべに油を熱し、肉と玉ねぎを炒める。", "time": "4分", "heat": "中火" },
-        { "text": "残りの野菜を加えて炒め、水を注ぐ。", "time": "3分", "heat": "中火" },
-        { "text": "煮立ったらアクを取り、野菜がやわらかくなるまで煮る。", "time": "15分", "heat": "弱火" },
-        { "text": "いったん火を止めてルーを溶かし入れる。", "time": "2分", "heat": "－" },
-        { "text": "とろみがつくまで混ぜながら煮る。", "time": "5分", "heat": "弱火" }
+        {
+          "text": "野菜を食べやすい大きさに切る。",
+          "time": "8分",
+          "heat": "－"
+        },
+        {
+          "text": "なべに油を熱し、肉と玉ねぎを炒める。",
+          "time": "4分",
+          "heat": "中火"
+        },
+        {
+          "text": "残りの野菜を加えて炒め、水を注ぐ。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "煮立ったらアクを取り、野菜がやわらかくなるまで煮る。",
+          "time": "15分",
+          "heat": "弱火"
+        },
+        {
+          "text": "いったん火を止めてルーを溶かし入れる。",
+          "time": "2分",
+          "heat": "－"
+        },
+        {
+          "text": "とろみがつくまで混ぜながら煮る。",
+          "time": "5分",
+          "heat": "弱火"
+        }
       ]
     },
     {
-      "id": "r_hamburg", "name": "ハンバーグ", "category": "主菜", "difficulty": 3, "baseServings": 2,
+      "id": "r_hamburg",
+      "name": "ハンバーグ",
+      "category": "主菜",
+      "difficulty": 3,
+      "baseServings": 2,
       "point": "中央をくぼませて焼くと火が通りやすい。竹ぐしをさして透明な汁が出れば焼き上がり。",
       "ingredients": [
-        { "name": "合いびき肉", "amount": 200, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "玉ねぎ", "amount": 0.5, "unit": "個", "scalable": true, "round": "half" },
-        { "name": "パン粉", "amount": 3, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "牛乳", "amount": 2, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "卵", "amount": 1, "unit": "個", "scalable": true, "round": "int" },
-        { "name": "塩・こしょう", "amount": 0, "unit": "少々", "scalable": false, "round": "int" },
-        { "name": "サラダ油", "amount": 1, "unit": "大さじ", "scalable": false, "round": "half" },
-        { "name": "ケチャップ", "amount": 2, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "中濃ソース", "amount": 2, "unit": "大さじ", "scalable": true, "round": "half" }
+        {
+          "name": "合いびき肉",
+          "amount": 200,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "玉ねぎ",
+          "amount": 0.5,
+          "unit": "個",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "パン粉",
+          "amount": 3,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "牛乳",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "卵",
+          "amount": 1,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "塩・こしょう",
+          "amount": 0,
+          "unit": "少々",
+          "scalable": false,
+          "round": "int"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "ケチャップ",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "中濃ソース",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        }
       ],
       "steps": [
-        { "text": "玉ねぎをみじん切りにする（炒めて冷ますとより甘くなる）。", "time": "5分", "heat": "－" },
-        { "text": "パン粉を牛乳にひたす。ボウルにひき肉・玉ねぎ・卵・塩こしょうと合わせ、粘りが出るまでこねる。", "time": "5分", "heat": "－" },
-        { "text": "2等分して空気を抜きながら小判形にし、中央をくぼませる。", "time": "3分", "heat": "－" },
-        { "text": "フライパンに油を熱し、焼き色がつくまで焼く。", "time": "3分", "heat": "中火" },
-        { "text": "裏返してふたをし、蒸し焼きにする。", "time": "7分", "heat": "弱火" },
-        { "text": "取り出した後のフライパンでケチャップとソースを温め、かける。", "time": "1分", "heat": "弱火" }
+        {
+          "text": "玉ねぎをみじん切りにする（炒めて冷ますとより甘くなる）。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "パン粉を牛乳にひたす。ボウルにひき肉・玉ねぎ・卵・塩こしょうと合わせ、粘りが出るまでこねる。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "2等分して空気を抜きながら小判形にし、中央をくぼませる。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンに油を熱し、焼き色がつくまで焼く。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "裏返してふたをし、蒸し焼きにする。",
+          "time": "7分",
+          "heat": "弱火"
+        },
+        {
+          "text": "取り出した後のフライパンでケチャップとソースを温め、かける。",
+          "time": "1分",
+          "heat": "弱火"
+        }
       ]
     },
     {
-      "id": "r_yasaiitame", "name": "野菜炒め", "category": "主菜", "difficulty": 1, "baseServings": 2,
+      "id": "r_yasaiitame",
+      "name": "野菜炒め",
+      "category": "主菜",
+      "difficulty": 1,
+      "baseServings": 2,
       "point": "火の通りにくいものから順に炒める。強火で手早く仕上げるとシャキッとする。",
       "ingredients": [
-        { "name": "豚こま切れ肉", "amount": 100, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "キャベツ", "amount": 150, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "にんじん", "amount": 0.3, "unit": "本", "scalable": true, "round": "tenth" },
-        { "name": "ピーマン", "amount": 1, "unit": "個", "scalable": true, "round": "int" },
-        { "name": "サラダ油", "amount": 1, "unit": "大さじ", "scalable": false, "round": "half" },
-        { "name": "塩・こしょう", "amount": 0, "unit": "少々", "scalable": false, "round": "int" },
-        { "name": "しょうゆ", "amount": 0.5, "unit": "小さじ", "scalable": true, "round": "half" }
+        {
+          "name": "豚こま切れ肉",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "キャベツ",
+          "amount": 150,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.3,
+          "unit": "本",
+          "scalable": true,
+          "round": "tenth"
+        },
+        {
+          "name": "ピーマン",
+          "amount": 1,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "塩・こしょう",
+          "amount": 0,
+          "unit": "少々",
+          "scalable": false,
+          "round": "int"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 0.5,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        }
       ],
       "steps": [
-        { "text": "野菜を食べやすい大きさに切る。にんじんは薄めの短冊切り。", "time": "5分", "heat": "－" },
-        { "text": "フライパンに油を熱し、肉を炒める。", "time": "2分", "heat": "中火" },
-        { "text": "にんじん→キャベツ→ピーマンの順に加えて炒める。", "time": "3分", "heat": "強火" },
-        { "text": "塩こしょうとしょうゆで味を調え、手早く混ぜて火を止める。", "time": "1分", "heat": "強火" }
+        {
+          "text": "野菜を食べやすい大きさに切る。にんじんは薄めの短冊切り。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンに油を熱し、肉を炒める。",
+          "time": "2分",
+          "heat": "中火"
+        },
+        {
+          "text": "にんじん→キャベツ→ピーマンの順に加えて炒める。",
+          "time": "3分",
+          "heat": "強火"
+        },
+        {
+          "text": "塩こしょうとしょうゆで味を調え、手早く混ぜて火を止める。",
+          "time": "1分",
+          "heat": "強火"
+        }
       ]
     },
     {
-      "id": "r_tamagoyaki", "name": "卵焼き", "category": "副菜", "difficulty": 2, "baseServings": 2,
+      "id": "r_tamagoyaki",
+      "name": "卵焼き",
+      "category": "副菜",
+      "difficulty": 2,
+      "baseServings": 2,
       "point": "巻くたびに油をうすくひくとくっつかない。半熟のうちに巻くとふんわり仕上がる。",
       "ingredients": [
-        { "name": "卵", "amount": 3, "unit": "個", "scalable": true, "round": "int" },
-        { "name": "砂糖", "amount": 1, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "しょうゆ", "amount": 0.5, "unit": "小さじ", "scalable": true, "round": "half" },
-        { "name": "水", "amount": 2, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "サラダ油", "amount": 0, "unit": "適量", "scalable": false, "round": "int" }
+        {
+          "name": "卵",
+          "amount": 3,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "砂糖",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 0.5,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "水",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
       ],
       "steps": [
-        { "text": "卵を割りほぐし、砂糖・しょうゆ・水を混ぜる。", "time": "2分", "heat": "－" },
-        { "text": "卵焼き器に油をひいて温め、卵液の1/3を流し入れる。", "time": "1分", "heat": "中火" },
-        { "text": "半熟のうちに奥から手前へ巻き、奥へ寄せる。", "time": "1分", "heat": "中火" },
-        { "text": "油をひき直し、残りの卵液を2回に分けて同様に巻く。", "time": "4分", "heat": "中火" },
-        { "text": "取り出して少し冷まし、食べやすく切る。", "time": "2分", "heat": "－" }
+        {
+          "text": "卵を割りほぐし、砂糖・しょうゆ・水を混ぜる。",
+          "time": "2分",
+          "heat": "－"
+        },
+        {
+          "text": "卵焼き器に油をひいて温め、卵液の1/3を流し入れる。",
+          "time": "1分",
+          "heat": "中火"
+        },
+        {
+          "text": "半熟のうちに奥から手前へ巻き、奥へ寄せる。",
+          "time": "1分",
+          "heat": "中火"
+        },
+        {
+          "text": "油をひき直し、残りの卵液を2回に分けて同様に巻く。",
+          "time": "4分",
+          "heat": "中火"
+        },
+        {
+          "text": "取り出して少し冷まし、食べやすく切る。",
+          "time": "2分",
+          "heat": "－"
+        }
       ]
     },
     {
-      "id": "r_salad", "name": "ゆで野菜サラダ", "category": "副菜", "difficulty": 1, "baseServings": 2,
+      "id": "r_salad",
+      "name": "ゆで野菜サラダ",
+      "category": "副菜",
+      "difficulty": 1,
+      "baseServings": 2,
       "point": "ゆでる時間は野菜によって変える。ゆですぎると色も食感も悪くなる。",
       "ingredients": [
-        { "name": "ブロッコリー", "amount": 100, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "にんじん", "amount": 0.5, "unit": "本", "scalable": true, "round": "half" },
-        { "name": "キャベツ", "amount": 100, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "好みのドレッシング", "amount": 0, "unit": "適量", "scalable": false, "round": "int" }
+        {
+          "name": "ブロッコリー",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "キャベツ",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "好みのドレッシング",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
       ],
       "steps": [
-        { "text": "ブロッコリーは小房に分け、にんじんは輪切り、キャベツはざく切りにする。", "time": "5分", "heat": "－" },
-        { "text": "なべに湯を沸かし、にんじんからゆで始める。", "time": "3分", "heat": "強火" },
-        { "text": "ブロッコリー、キャベツの順に加えてゆでる。", "time": "2分", "heat": "強火" },
-        { "text": "ざるに上げて水気を切り、冷ます。", "time": "5分", "heat": "－" },
-        { "text": "器に盛り、ドレッシングをかける。", "time": "1分", "heat": "－" }
+        {
+          "text": "ブロッコリーは小房に分け、にんじんは輪切り、キャベツはざく切りにする。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "なべに湯を沸かし、にんじんからゆで始める。",
+          "time": "3分",
+          "heat": "強火"
+        },
+        {
+          "text": "ブロッコリー、キャベツの順に加えてゆでる。",
+          "time": "2分",
+          "heat": "強火"
+        },
+        {
+          "text": "ざるに上げて水気を切り、冷ます。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "器に盛り、ドレッシングをかける。",
+          "time": "1分",
+          "heat": "－"
+        }
       ]
     },
     {
-      "id": "r_tonjiru", "name": "豚汁", "category": "汁物", "difficulty": 2, "baseServings": 4,
+      "id": "r_tonjiru",
+      "name": "豚汁",
+      "category": "汁物",
+      "difficulty": 2,
+      "baseServings": 4,
       "point": "根菜は水から煮ると味がしみる。みそは2回に分けて入れると風味が良い。",
       "ingredients": [
-        { "name": "豚こま切れ肉", "amount": 150, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "大根", "amount": 100, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "にんじん", "amount": 0.5, "unit": "本", "scalable": true, "round": "half" },
-        { "name": "ごぼう", "amount": 0.5, "unit": "本", "scalable": true, "round": "half" },
-        { "name": "こんにゃく", "amount": 100, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "だし汁", "amount": 800, "unit": "ml", "scalable": true, "round": "int" },
-        { "name": "みそ", "amount": 3, "unit": "大さじ", "scalable": true, "round": "half" },
-        { "name": "ごま油", "amount": 1, "unit": "小さじ", "scalable": false, "round": "half" }
+        {
+          "name": "豚こま切れ肉",
+          "amount": 150,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "大根",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ごぼう",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "こんにゃく",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "だし汁",
+          "amount": 800,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "みそ",
+          "amount": 3,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ごま油",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": false,
+          "round": "half"
+        }
       ],
       "steps": [
-        { "text": "大根・にんじんはいちょう切り、ごぼうはささがきにして水にさらす。こんにゃくは手でちぎる。", "time": "8分", "heat": "－" },
-        { "text": "なべにごま油を熱し、豚肉を炒める。", "time": "2分", "heat": "中火" },
-        { "text": "野菜とこんにゃくを加えて炒め、だし汁を注ぐ。", "time": "3分", "heat": "中火" },
-        { "text": "煮立ったらアクを取り、野菜がやわらかくなるまで煮る。", "time": "12分", "heat": "弱火" },
-        { "text": "みそを溶き入れ、煮立たせずに温める。", "time": "2分", "heat": "弱火" }
+        {
+          "text": "大根・にんじんはいちょう切り、ごぼうはささがきにして水にさらす。こんにゃくは手でちぎる。",
+          "time": "8分",
+          "heat": "－"
+        },
+        {
+          "text": "なべにごま油を熱し、豚肉を炒める。",
+          "time": "2分",
+          "heat": "中火"
+        },
+        {
+          "text": "野菜とこんにゃくを加えて炒め、だし汁を注ぐ。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "煮立ったらアクを取り、野菜がやわらかくなるまで煮る。",
+          "time": "12分",
+          "heat": "弱火"
+        },
+        {
+          "text": "みそを溶き入れ、煮立たせずに温める。",
+          "time": "2分",
+          "heat": "弱火"
+        }
       ]
     },
     {
-      "id": "r_hotcake", "name": "ホットケーキ", "category": "デザート", "difficulty": 1, "baseServings": 2,
+      "id": "r_hotcake",
+      "name": "ホットケーキ",
+      "category": "デザート",
+      "difficulty": 1,
+      "baseServings": 2,
       "point": "表面にプツプツと穴があいてきたら裏返す合図。返すのは1回だけ。",
       "ingredients": [
-        { "name": "ホットケーキミックス", "amount": 150, "unit": "g", "scalable": true, "round": "int" },
-        { "name": "卵", "amount": 1, "unit": "個", "scalable": true, "round": "int" },
-        { "name": "牛乳", "amount": 100, "unit": "ml", "scalable": true, "round": "int" },
-        { "name": "バター", "amount": 10, "unit": "g", "scalable": true, "round": "int" }
+        {
+          "name": "ホットケーキミックス",
+          "amount": 150,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "卵",
+          "amount": 1,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "牛乳",
+          "amount": 100,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "バター",
+          "amount": 10,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        }
       ],
       "steps": [
-        { "text": "ボウルに卵と牛乳を入れて混ぜ、ミックスを加えてさっくり混ぜる。", "time": "3分", "heat": "－" },
-        { "text": "フライパンを温めてから、ぬれぶきんの上で少し冷ます。", "time": "1分", "heat": "中火" },
-        { "text": "生地の半量を高めの位置から流し入れて焼く。", "time": "3分", "heat": "弱火" },
-        { "text": "表面に穴があいてきたら裏返して焼く。", "time": "2分", "heat": "弱火" },
-        { "text": "同様にもう1枚焼き、バターをのせる。", "time": "6分", "heat": "弱火" }
+        {
+          "text": "ボウルに卵と牛乳を入れて混ぜ、ミックスを加えてさっくり混ぜる。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンを温めてから、ぬれぶきんの上で少し冷ます。",
+          "time": "1分",
+          "heat": "中火"
+        },
+        {
+          "text": "生地の半量を高めの位置から流し入れて焼く。",
+          "time": "3分",
+          "heat": "弱火"
+        },
+        {
+          "text": "表面に穴があいてきたら裏返して焼く。",
+          "time": "2分",
+          "heat": "弱火"
+        },
+        {
+          "text": "同様にもう1枚焼き、バターをのせる。",
+          "time": "6分",
+          "heat": "弱火"
+        }
+      ]
+    },
+    {
+      "id": "r_oyakodon",
+      "name": "親子丼",
+      "category": "主食",
+      "difficulty": 2,
+      "baseServings": 2,
+      "point": "卵は2回に分けて回し入れる。1回目でとじ、2回目は半熟で火を止めるとふんわりする。",
+      "ingredients": [
+        {
+          "name": "鶏もも肉",
+          "amount": 150,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "たまねぎ",
+          "amount": 0.5,
+          "unit": "個",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "卵",
+          "amount": 3,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "だし汁",
+          "amount": 150,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "みりん",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "砂糖",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ごはん",
+          "amount": 2,
+          "unit": "杯",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "みつば・のり",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "鶏肉は一口大のそぎ切り、たまねぎは薄いくし形切りにする。卵は軽くときほぐす。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンにだし汁と調味料を入れ、たまねぎを並べて煮る。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "鶏肉を加え、火が通るまで煮る。",
+          "time": "5分",
+          "heat": "中火"
+        },
+        {
+          "text": "とき卵の2/3を回し入れ、ふたをして半熟にする。",
+          "time": "1分",
+          "heat": "弱火"
+        },
+        {
+          "text": "残りの卵を回し入れ、10秒ほどで火を止める。ごはんにのせる。",
+          "time": "1分",
+          "heat": "弱火"
+        }
+      ]
+    },
+    {
+      "id": "r_chahan",
+      "name": "チャーハン",
+      "category": "主食",
+      "difficulty": 2,
+      "baseServings": 2,
+      "point": "強火で手早く。ごはんは温かいものを使うとパラッと仕上がる。",
+      "ingredients": [
+        {
+          "name": "ごはん",
+          "amount": 400,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "卵",
+          "amount": 2,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "長ねぎ",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ハムまたはベーコン",
+          "amount": 50,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "塩・こしょう",
+          "amount": 0,
+          "unit": "少々",
+          "scalable": false,
+          "round": "int"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        }
+      ],
+      "steps": [
+        {
+          "text": "ねぎとハムをみじん切りにする。卵はときほぐす。",
+          "time": "4分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンに油を熱し、とき卵を入れて大きく混ぜ、半熟で取り出す。",
+          "time": "1分",
+          "heat": "強火"
+        },
+        {
+          "text": "ハムとねぎを炒め、香りが出たらごはんを加えてほぐしながら炒める。",
+          "time": "4分",
+          "heat": "強火"
+        },
+        {
+          "text": "卵を戻し、塩こしょうとなべはだからしょうゆを加えて混ぜる。",
+          "time": "1分",
+          "heat": "強火"
+        }
+      ]
+    },
+    {
+      "id": "r_yakiudon",
+      "name": "焼きうどん",
+      "category": "主食",
+      "difficulty": 1,
+      "baseServings": 2,
+      "point": "うどんは最後に入れて、水を少しふると麺がほぐれやすい。",
+      "ingredients": [
+        {
+          "name": "ゆでうどん",
+          "amount": 2,
+          "unit": "玉",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "豚こま切れ肉",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "キャベツ",
+          "amount": 150,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.3,
+          "unit": "本",
+          "scalable": true,
+          "round": "tenth"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "中濃ソース",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "かつおぶし",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "キャベツはざく切り、にんじんは短冊切りにする。",
+          "time": "4分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンに油を熱し、豚肉を炒める。",
+          "time": "2分",
+          "heat": "中火"
+        },
+        {
+          "text": "にんじん、キャベツの順に加えて炒める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "うどんと水大さじ1を加えてほぐし、しょうゆとソースで味つけする。",
+          "time": "3分",
+          "heat": "強火"
+        }
+      ]
+    },
+    {
+      "id": "r_mabo",
+      "name": "麻婆豆腐",
+      "category": "主菜",
+      "difficulty": 2,
+      "baseServings": 2,
+      "point": "豆腐はくずれやすいので、加えたら大きく混ぜる。とろみは火を止めてからつける。",
+      "ingredients": [
+        {
+          "name": "木綿豆腐",
+          "amount": 300,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "豚ひき肉",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "長ねぎ",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "水",
+          "amount": 150,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "みそ",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "砂糖",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "片くり粉",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ごま油",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": false,
+          "round": "half"
+        }
+      ],
+      "steps": [
+        {
+          "text": "豆腐は2cm角、ねぎはみじん切りにする。片くり粉は同量の水でとく。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "ごま油でひき肉とねぎを炒める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "水と調味料を加えて煮立てる。",
+          "time": "2分",
+          "heat": "中火"
+        },
+        {
+          "text": "豆腐を加えて、くずさないように煮る。",
+          "time": "4分",
+          "heat": "弱火"
+        },
+        {
+          "text": "火を止めて水どき片くり粉を回し入れ、混ぜてから再び加熱してとろみをつける。",
+          "time": "1分",
+          "heat": "弱火"
+        }
+      ]
+    },
+    {
+      "id": "r_karaage",
+      "name": "から揚げ",
+      "category": "主菜",
+      "difficulty": 3,
+      "baseServings": 2,
+      "point": "170℃で3分揚げ、取り出して2分休ませ、190℃で1分の二度揚げにするとカリッとする。",
+      "ingredients": [
+        {
+          "name": "鶏もも肉",
+          "amount": 300,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "酒",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "しょうが（すりおろし）",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "片くり粉",
+          "amount": 4,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "揚げ油",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "鶏肉を一口大に切り、調味料をもみこむ。",
+          "time": "5分",
+          "heat": "－"
+        },
+        {
+          "text": "冷蔵庫で味をなじませる。",
+          "time": "20分",
+          "heat": "－"
+        },
+        {
+          "text": "汁気を軽く切り、片くり粉をまぶす。",
+          "time": "4分",
+          "heat": "－"
+        },
+        {
+          "text": "170℃の油で揚げる。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "バットに取り出して休ませる。",
+          "time": "2分",
+          "heat": "－"
+        },
+        {
+          "text": "190℃に上げてもう一度揚げ、油を切る。",
+          "time": "1分",
+          "heat": "強火"
+        }
+      ]
+    },
+    {
+      "id": "r_muniere",
+      "name": "鮭のムニエル",
+      "category": "主菜",
+      "difficulty": 2,
+      "baseServings": 2,
+      "point": "皮目から焼くと形がくずれにくい。バターは焦げやすいので最後に。",
+      "ingredients": [
+        {
+          "name": "生鮭",
+          "amount": 2,
+          "unit": "切れ",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "塩・こしょう",
+          "amount": 0,
+          "unit": "少々",
+          "scalable": false,
+          "round": "int"
+        },
+        {
+          "name": "小麦粉",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "サラダ油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "バター",
+          "amount": 10,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "レモン",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "鮭の水気をふき、塩こしょうをして10分おく。",
+          "time": "10分",
+          "heat": "－"
+        },
+        {
+          "text": "再び水気をふき、小麦粉を薄くまぶす。",
+          "time": "2分",
+          "heat": "－"
+        },
+        {
+          "text": "フライパンに油を熱し、皮目を下にして焼く。",
+          "time": "4分",
+          "heat": "中火"
+        },
+        {
+          "text": "裏返して火を通す。",
+          "time": "3分",
+          "heat": "弱火"
+        },
+        {
+          "text": "バターを加えてからめ、レモンをそえる。",
+          "time": "1分",
+          "heat": "弱火"
+        }
+      ]
+    },
+    {
+      "id": "r_kinpira",
+      "name": "きんぴらごぼう",
+      "category": "副菜",
+      "difficulty": 2,
+      "baseServings": 2,
+      "point": "ごぼうは切ったら水にさらしてアクをぬく。汁気がなくなるまで炒めると日もちする。",
+      "ingredients": [
+        {
+          "name": "ごぼう",
+          "amount": 1,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ごま油",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": false,
+          "round": "half"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 1.5,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "みりん",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "砂糖",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "いりごま",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "ごぼうとにんじんをせん切りにし、ごぼうは水にさらす。",
+          "time": "8分",
+          "heat": "－"
+        },
+        {
+          "text": "ごま油を熱し、水気を切ったごぼうを炒める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "にんじんを加えて炒める。",
+          "time": "2分",
+          "heat": "中火"
+        },
+        {
+          "text": "調味料を加え、汁気がなくなるまで炒める。",
+          "time": "4分",
+          "heat": "中火"
+        },
+        {
+          "text": "ごまをふって火を止める。",
+          "time": "30秒",
+          "heat": "－"
+        }
+      ]
+    },
+    {
+      "id": "r_ohitashi",
+      "name": "ほうれん草のおひたし",
+      "category": "副菜",
+      "difficulty": 1,
+      "baseServings": 2,
+      "point": "ゆでたらすぐ冷水にとると色があざやかに残る。しっかりしぼって水っぽさを防ぐ。",
+      "ingredients": [
+        {
+          "name": "ほうれん草",
+          "amount": 1,
+          "unit": "わ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "だし汁",
+          "amount": 100,
+          "unit": "ml",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "しょうゆ",
+          "amount": 1,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "かつおぶし",
+          "amount": 0,
+          "unit": "適量",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "ほうれん草を洗い、根元に切り目を入れる。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "湯を沸かし、根元から入れてゆでる。",
+          "time": "2分",
+          "heat": "強火"
+        },
+        {
+          "text": "冷水にとって冷まし、水気をしぼって4cmに切る。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "だし汁としょうゆを合わせてひたし、かつおぶしをのせる。",
+          "time": "2分",
+          "heat": "－"
+        }
+      ]
+    },
+    {
+      "id": "r_potesara",
+      "name": "ポテトサラダ",
+      "category": "副菜",
+      "difficulty": 2,
+      "baseServings": 2,
+      "point": "熱いうちに塩こしょうと酢で下味をつけると、味がぼやけない。マヨネーズは冷めてから。",
+      "ingredients": [
+        {
+          "name": "じゃがいも",
+          "amount": 2,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "きゅうり",
+          "amount": 0.5,
+          "unit": "本",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "にんじん",
+          "amount": 0.3,
+          "unit": "本",
+          "scalable": true,
+          "round": "tenth"
+        },
+        {
+          "name": "ハム",
+          "amount": 2,
+          "unit": "枚",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "マヨネーズ",
+          "amount": 3,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "酢",
+          "amount": 1,
+          "unit": "小さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "塩・こしょう",
+          "amount": 0,
+          "unit": "少々",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "じゃがいもは4等分、にんじんは薄い半月切り、きゅうりは小口切りにして塩をふる。",
+          "time": "6分",
+          "heat": "－"
+        },
+        {
+          "text": "じゃがいもとにんじんを水からゆでる。",
+          "time": "15分",
+          "heat": "中火"
+        },
+        {
+          "text": "湯を切り、じゃがいもをつぶして酢と塩こしょうをまぜる。",
+          "time": "3分",
+          "heat": "－"
+        },
+        {
+          "text": "あら熱をとる。",
+          "time": "10分",
+          "heat": "－"
+        },
+        {
+          "text": "水気をしぼったきゅうり、ハム、マヨネーズを加えてあえる。",
+          "time": "2分",
+          "heat": "－"
+        }
+      ]
+    },
+    {
+      "id": "r_omurice",
+      "name": "オムライス",
+      "category": "主食",
+      "difficulty": 3,
+      "baseServings": 2,
+      "point": "卵は半熟で火を止め、余熱で仕上げる。うすく焼いてかぶせるだけでも形になる。",
+      "ingredients": [
+        {
+          "name": "ごはん",
+          "amount": 400,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "鶏もも肉またはウインナー",
+          "amount": 100,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "たまねぎ",
+          "amount": 0.5,
+          "unit": "個",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "ケチャップ",
+          "amount": 4,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "卵",
+          "amount": 4,
+          "unit": "個",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "牛乳",
+          "amount": 2,
+          "unit": "大さじ",
+          "scalable": true,
+          "round": "half"
+        },
+        {
+          "name": "バター",
+          "amount": 10,
+          "unit": "g",
+          "scalable": true,
+          "round": "int"
+        },
+        {
+          "name": "塩・こしょう",
+          "amount": 0,
+          "unit": "少々",
+          "scalable": false,
+          "round": "int"
+        }
+      ],
+      "steps": [
+        {
+          "text": "たまねぎと肉を1cm角に切る。卵は牛乳と塩を混ぜてとく。",
+          "time": "6分",
+          "heat": "－"
+        },
+        {
+          "text": "バターで具を炒める。",
+          "time": "3分",
+          "heat": "中火"
+        },
+        {
+          "text": "ごはんとケチャップを加えて炒め、塩こしょうで味を調えて取り出す。",
+          "time": "4分",
+          "heat": "中火"
+        },
+        {
+          "text": "フライパンにバターを熱し、卵液の半量を流して大きく混ぜる。",
+          "time": "1分",
+          "heat": "中火"
+        },
+        {
+          "text": "半熟のうちにごはんをのせ、包むか、皿に返してかぶせる。",
+          "time": "1分",
+          "heat": "弱火"
+        }
       ]
     }
   ]

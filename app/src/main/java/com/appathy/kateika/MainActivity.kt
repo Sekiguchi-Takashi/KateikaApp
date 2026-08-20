@@ -67,6 +67,7 @@ class MainActivity : ComponentActivity() {
         DataRepo.load(this)
         Store.init(this)
         CharRepo.load(this)
+        FoodTools.load(this)
         setContent {
             MaterialTheme(
                 colorScheme = lightColorScheme(

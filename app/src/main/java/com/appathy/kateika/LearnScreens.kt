@@ -54,9 +54,10 @@ fun DomainScreen(d: Domain, push: (Screen) -> Unit, pop: () -> Unit) {
         val best = Store.gameBest(d.gameId)
         SectionCard(bg = Color(d.colorHex).copy(alpha = 0.15f), onClick = { push(Screen.Game(d)) }) {
             Column {
-                Text("🎮 " + d.gameName, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink)
+                Text((if (d.gameId == "foodtools") "🔧 " else "🎮 ") + d.gameName, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink)
                 Text(
-                    if (best >= 0) "ベストスコア: $best 点" else "あそんで学ぼう（未プレイ）",
+                    if (d.gameId == "foodtools") "切り方・相場・冷蔵庫・旬の4つの道具"
+                    else if (best >= 0) "ベストスコア: $best 点" else "あそんで学ぼう（未プレイ）",
                     fontSize = 12.sp, color = Ink.copy(alpha = 0.7f), modifier = Modifier.padding(top = 4.dp)
                 )
             }
