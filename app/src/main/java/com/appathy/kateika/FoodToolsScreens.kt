@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -42,27 +43,10 @@ private val Veg = Color(0xFFE07A5F)
 private val VegLight = Color(0xFFF6D9CF)
 
 @Composable
-fun FoodToolsScreen(d: Domain, pop: () -> Unit) {
-    var tab by remember { mutableIntStateOf(0) }
-    val tabs = listOf("切り方", "相場", "冷蔵庫", "旬")
+fun FoodToolScreen(d: Domain, tab: Int, pop: () -> Unit) {
+    val titles = listOf("包丁の切り方", "食材の相場", "冷蔵庫のあまりもの", "旬のカレンダー")
     Column(Modifier.fillMaxSize()) {
-        TopBar("食のツール", Color(d.colorHex), pop)
-        Row(Modifier.fillMaxWidth().background(Color(0xFFF3EEE6)).padding(6.dp)) {
-            tabs.forEachIndexed { i, t ->
-                Box(
-                    Modifier.weight(1f).padding(horizontal = 3.dp)
-                        .background(if (i == tab) Veg else Color.White, RoundedCornerShape(12.dp))
-                        .clickable { tab = i }
-                        .padding(vertical = 10.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        t, fontSize = 14.sp, fontWeight = FontWeight.Bold,
-                        color = if (i == tab) Color.White else Ink
-                    )
-                }
-            }
-        }
+        TopBar(titles[tab], Color(d.colorHex), pop)
         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
             when (tab) {
                 0 -> CutsTab()
@@ -72,6 +56,119 @@ fun FoodToolsScreen(d: Domain, pop: () -> Unit) {
             }
             Spacer(Modifier.height(24.dp))
         }
+    }
+}
+
+@Composable
+fun SpecialtyScreen(d: Domain, pop: () -> Unit) {
+    var refresh by remember { mutableIntStateOf(0) }
+    val list = remember(refresh) { Store.specialties() }
+    var name by remember { mutableStateOf("") }
+    var tip by remember { mutableStateOf("") }
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+        TopBar("得意料理", Color(d.colorHex), pop)
+        SectionCard(bg = VegLight) {
+            Column {
+                Text(
+                    "食生活ポイント " + Store.foodScore() + " 点",
+                    fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Ink
+                )
+                Text(
+                    "得意料理を1品ふやすと10点。その料理のコツも書くと、さらに10点。",
+                    fontSize = 12.sp, lineHeight = 19.sp, color = Ink.copy(alpha = 0.8f),
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
+        }
+        SectionCard {
+            Column {
+                Text("料理名", fontSize = 13.sp, color = Ink.copy(alpha = 0.7f))
+                OutlinedTextField(
+                    value = name, onValueChange = { name = it },
+                    modifier = Modifier.fillMaxWidth(), singleLine = true,
+                    placeholder = { Text("例：卵焼き", fontSize = 13.sp) }
+                )
+                Spacer(Modifier.height(8.dp))
+                Text("コツ（書くと追加点）", fontSize = 13.sp, color = Ink.copy(alpha = 0.7f))
+                OutlinedTextField(
+                    value = tip, onValueChange = { tip = it },
+                    modifier = Modifier.fillMaxWidth().height(100.dp),
+                    placeholder = { Text("うまくつくるためのポイント", fontSize = 13.sp) }
+                )
+                Box(
+                    Modifier.fillMaxWidth().padding(top = 10.dp)
+                        .background(
+                            if (name.isBlank()) Color(0xFFBBB6AE) else Veg,
+                            RoundedCornerShape(12.dp)
+                        )
+                        .clickable {
+                            if (name.isNotBlank()) {
+                                Store.saveSpecialty(
+                                    Specialty(System.currentTimeMillis(), name.trim(), tip.trim())
+                                )
+                                name = ""
+                                tip = ""
+                                refresh++
+                            }
+                        }
+                        .padding(vertical = 14.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        if (tip.isBlank()) "登録する（＋10点）" else "登録する（＋20点）",
+                        color = Color.White, fontSize = 15.sp, fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+        }
+        Text(
+            "登録した得意料理 " + list.size + " 品",
+            modifier = Modifier.padding(start = 16.dp, top = 8.dp),
+            fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Ink
+        )
+        if (list.isEmpty()) {
+            SectionCard {
+                Text(
+                    "まだ登録がありません。つくれるようになった料理から書いてみよう。",
+                    fontSize = 13.sp, lineHeight = 20.sp, color = Ink
+                )
+            }
+        }
+        list.forEach { s ->
+            SectionCard {
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(s.name, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink, modifier = Modifier.weight(1f))
+                        Text(
+                            if (s.tip.isBlank()) "10点" else "20点",
+                            fontSize = 13.sp, fontWeight = FontWeight.Bold, color = Veg
+                        )
+                    }
+                    if (s.tip.isNotBlank()) {
+                        Text(
+                            "💡 " + s.tip,
+                            fontSize = 13.sp, lineHeight = 20.sp, color = Ink,
+                            modifier = Modifier.padding(top = 5.dp)
+                        )
+                    } else {
+                        Text(
+                            "コツを書くと＋10点。下の入力欄に同じ料理名で登録すると上書きされます。",
+                            fontSize = 11.sp, lineHeight = 17.sp, color = Ink.copy(alpha = 0.6f),
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
+                    }
+                    Text(
+                        "けす",
+                        fontSize = 12.sp, color = Color(0xFFB00020),
+                        modifier = Modifier.padding(top = 8.dp).clickable {
+                            Store.deleteSpecialty(s.id)
+                            refresh++
+                        }
+                    )
+                }
+            }
+        }
+        Spacer(Modifier.height(24.dp))
     }
 }
 

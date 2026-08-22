@@ -51,15 +51,49 @@ fun DomainScreen(d: Domain, push: (Screen) -> Unit, pop: () -> Unit) {
                 }
             }
         }
-        val best = Store.gameBest(d.gameId)
-        SectionCard(bg = Color(d.colorHex).copy(alpha = 0.15f), onClick = { push(Screen.Game(d)) }) {
-            Column {
-                Text((if (d.gameId == "foodtools") "🔧 " else "🎮 ") + d.gameName, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink)
-                Text(
-                    if (d.gameId == "foodtools") "切り方・相場・冷蔵庫・旬の4つの道具"
-                    else if (best >= 0) "ベストスコア: $best 点" else "あそんで学ぼう（未プレイ）",
-                    fontSize = 12.sp, color = Ink.copy(alpha = 0.7f), modifier = Modifier.padding(top = 4.dp)
-                )
+        if (d.gameId == "foodtools") {
+            SectionCard(bg = Color(0xFFFFE8D6), onClick = { push(Screen.Specialty2(d)) }) {
+                Column {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text("🍳 得意料理を登録する", fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink, modifier = Modifier.weight(1f))
+                        Text("${Store.foodScore()} 点", fontWeight = FontWeight.Bold, fontSize = 18.sp, color = Color(0xFFE07A5F))
+                    }
+                    Text(
+                        "登録${Store.specialties().size}品　1品ふやすと10点、コツを書くとさらに10点",
+                        fontSize = 12.sp, lineHeight = 18.sp, color = Ink.copy(alpha = 0.75f),
+                        modifier = Modifier.padding(top = 4.dp)
+                    )
+                }
+            }
+            Text(
+                "食のツール",
+                modifier = Modifier.padding(start = 16.dp, top = 10.dp, bottom = 2.dp),
+                fontSize = 13.sp, fontWeight = FontWeight.Bold, color = Ink
+            )
+            val tools = listOf(
+                Triple(0, "包丁の切り方", "輪切り・乱切りなど12種を図で覚える"),
+                Triple(1, "食材の相場", "野菜と肉のいまの値段と平年比"),
+                Triple(2, "冷蔵庫のあまりもの", "あるものを選ぶとつくれる料理が出る"),
+                Triple(3, "旬のカレンダー", "季節ごとの野菜とくだもの")
+            )
+            tools.forEach { (idx, title, sub) ->
+                SectionCard(bg = Color(d.colorHex).copy(alpha = 0.12f), onClick = { push(Screen.FoodTool(d, idx)) }) {
+                    Column {
+                        Text(title, fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Ink)
+                        Text(sub, fontSize = 12.sp, color = Ink.copy(alpha = 0.7f), modifier = Modifier.padding(top = 3.dp))
+                    }
+                }
+            }
+        } else {
+            val best = Store.gameBest(d.gameId)
+            SectionCard(bg = Color(d.colorHex).copy(alpha = 0.15f), onClick = { push(Screen.Game(d)) }) {
+                Column {
+                    Text("🎮 " + d.gameName, fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Ink)
+                    Text(
+                        if (best >= 0) "ベストスコア: $best 点" else "あそんで学ぼう（未プレイ）",
+                        fontSize = 12.sp, color = Ink.copy(alpha = 0.7f), modifier = Modifier.padding(top = 4.dp)
+                    )
+                }
             }
         }
         Text(
@@ -79,10 +113,17 @@ fun DomainScreen(d: Domain, push: (Screen) -> Unit, pop: () -> Unit) {
                             fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Ink
                         )
                     }
-                    Text(
-                        if (qBest >= 0) "クイズ ベスト: $qBest / ${l.quiz.size} 問" else "クイズ ${l.quiz.size} 問つき",
-                        fontSize = 12.sp, color = Ink.copy(alpha = 0.6f), modifier = Modifier.padding(top = 2.dp)
-                    )
+                    if (l.quiz.isNotEmpty()) {
+                        Text(
+                            if (qBest >= 0) "クイズ ベスト: $qBest / ${l.quiz.size} 問" else "クイズ ${l.quiz.size} 問つき",
+                            fontSize = 12.sp, color = Ink.copy(alpha = 0.6f), modifier = Modifier.padding(top = 2.dp)
+                        )
+                    } else {
+                        Text(
+                            if (read) "読みおわりました" else "よみもの",
+                            fontSize = 12.sp, color = Ink.copy(alpha = 0.6f), modifier = Modifier.padding(top = 2.dp)
+                        )
+                    }
                 }
             }
         }
@@ -102,12 +143,15 @@ fun LessonScreen(d: Domain, l: Lesson, push: (Screen) -> Unit, pop: () -> Unit) 
         Button(
             onClick = {
                 Store.setRead(l.id)
-                push(Screen.QuizS(d, l))
+                if (l.quiz.isNotEmpty()) push(Screen.QuizS(d, l)) else pop()
             },
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color(d.colorHex))
         ) {
-            Text("クイズにちょうせん（${l.quiz.size}問）", fontSize = 16.sp)
+            Text(
+                if (l.quiz.isNotEmpty()) "クイズにちょうせん（${l.quiz.size}問）" else "読みおわった",
+                fontSize = 16.sp
+            )
         }
         Spacer(Modifier.height(16.dp))
     }

@@ -56,6 +56,8 @@ sealed class Screen {
     data object Chars : Screen()
     data class CharDetail(val c: Character) : Screen()
     data class RecipeEdit(val base: Recipe?) : Screen()
+    data class FoodTool(val d: Domain, val tab: Int) : Screen()
+    data class Specialty2(val d: Domain) : Screen()
 }
 
 val Ink = Color(0xFF3D405B)
@@ -98,6 +100,8 @@ class MainActivity : ComponentActivity() {
                         is Screen.Chars -> CharacterListScreen(push, pop)
                         is Screen.CharDetail -> CharDetailScreen(cur.c, pop)
                         is Screen.RecipeEdit -> RecipeEditScreen(cur.base, pop)
+                        is Screen.FoodTool -> FoodToolScreen(cur.d, cur.tab, pop)
+                        is Screen.Specialty2 -> SpecialtyScreen(cur.d, pop)
                     }
                     }
                   }

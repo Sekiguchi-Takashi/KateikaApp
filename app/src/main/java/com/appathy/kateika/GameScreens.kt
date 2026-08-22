@@ -41,7 +41,6 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun GameScreen(d: Domain, pop: () -> Unit) {
     when (d.gameId) {
-        "foodtools" -> FoodToolsScreen(d, pop)
         "sort" -> SortGame(d, pop)
         "laundry" -> LaundryGame(d, pop)
         "order" -> OrderGame(d, pop)

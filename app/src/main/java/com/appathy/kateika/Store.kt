@@ -16,6 +16,8 @@ data class CookLog(
     val dateMillis: Long
 )
 
+data class Specialty(val id: Long, val name: String, val tip: String)
+
 object Store {
     private lateinit var sp: SharedPreferences
 
@@ -83,6 +85,49 @@ object Store {
         val next = HashSet(seenChars())
         next.addAll(ids)
         sp.edit().putStringSet("seenChars", next).apply()
+    }
+
+    fun specialties(): List<Specialty> {
+        val arr = JSONArray(sp.getString("specialties", "[]"))
+        return (0 until arr.length()).map { i ->
+            val o = arr.getJSONObject(i)
+            Specialty(o.getLong("id"), o.getString("name"), o.optString("tip"))
+        }.sortedByDescending { it.id }
+    }
+
+    fun saveSpecialty(s: Specialty) {
+        val arr = JSONArray(sp.getString("specialties", "[]"))
+        val out = JSONArray()
+        for (i in 0 until arr.length()) {
+            val o = arr.getJSONObject(i)
+            if (o.getLong("id") != s.id) out.put(o)
+        }
+        val o = JSONObject()
+        o.put("id", s.id)
+        o.put("name", s.name)
+        o.put("tip", s.tip)
+        out.put(o)
+        sp.edit().putString("specialties", out.toString()).apply()
+        setGameBest("foodtools", foodScore())
+    }
+
+    fun deleteSpecialty(id: Long) {
+        val arr = JSONArray(sp.getString("specialties", "[]"))
+        val out = JSONArray()
+        for (i in 0 until arr.length()) {
+            val o = arr.getJSONObject(i)
+            if (o.getLong("id") != id) out.put(o)
+        }
+        sp.edit().putString("specialties", out.toString()).apply()
+    }
+
+    fun foodScore(): Int {
+        var s = 0
+        specialties().forEach {
+            s += 10
+            if (it.tip.isNotBlank()) s += 10
+        }
+        return s
     }
 
     fun myRecipes(): List<Recipe> {
